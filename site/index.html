@@ -151,6 +151,14 @@ section { padding: 72px 0; border-top: 1px solid var(--line); }
 .case-body { display: flex; flex-direction: column; gap: 14px; max-width: 40em; padding: 4px 0 8px; }
 .case-body h4 { font-family: var(--display); font-weight: 800; font-size: 1.0625rem; letter-spacing: -0.01em; margin: 12px 0 0; }
 
+/* Project marks and screenshots */
+.name-row { display: flex; align-items: center; gap: 10px; }
+.mark-logo { height: 20px; width: auto; flex: none; color: var(--ink); }
+.shots { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin-top: 8px; }
+.shots figure { margin: 0; display: flex; flex-direction: column; gap: 8px; }
+.shots img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--surface); }
+.shots figcaption { font-family: var(--display); font-size: 0.8125rem; color: var(--muted); }
+
 /* Approach */
 .steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; counter-reset: step; }
 .steps li { counter-increment: step; border-top: 3px solid var(--ink); padding-top: 18px; display: flex; flex-direction: column; gap: 10px; }
@@ -200,6 +208,7 @@ footer a { color: var(--muted); }
   .offers, .bench { grid-template-columns: minmax(0, 1fr); }
   .feature-head { grid-template-columns: minmax(0, 1fr); }
   .parts, .glance { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .shots { grid-template-columns: minmax(0, 1fr); }
   .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .job { grid-template-columns: minmax(0, 1fr); gap: 10px; }
   .stat { text-align: left; display: flex; align-items: baseline; gap: 10px; }
@@ -288,7 +297,7 @@ footer a { color: var(--muted); }
         <article class="feature">
           <div class="feature-head">
             <div>
-              <h3>Swarm</h3>
+              <div class="name-row"><svg class="mark-logo" viewBox="0 0 116 69.57" aria-hidden="true" focusable="false"><path fill="currentColor" d="M34,62.69l7.61-21.37L29.07,6.19H0L20.13,62.65a7.44,7.44,0,0,0,13.84,0Z"/><path fill="currentColor" d="M70.12,6.81c-.88-2.37-3-4.49-5.68-4.54s-5.11,2.15-6,4.65l-.24.65L47.7,37.49,38.21,64.13a11.22,11.22,0,0,1-1.89,3.25H60.84a7.48,7.48,0,0,0,7-4.73L68,62,78.51,32.08l.31-.86Z"/><path fill="currentColor" d="M84.78,34.61h29.07L104,6.87a7.48,7.48,0,0,0-7-4.73H72.5a11.15,11.15,0,0,1,1.87,3.23Z"/></svg><h3>Swarm</h3></div>
               <p class="sub">Building regulated digital-asset infrastructure</p>
               <p class="role">Head of Product · December 2017 to May 2026</p>
             </div>
@@ -326,11 +335,15 @@ footer a { color: var(--muted); }
         </article>
         <article class="job">
           <div>
-            <h3>Provely</h3>
+            <div class="name-row"><svg class="mark-logo" viewBox="0 0 1032 605" aria-hidden="true" focusable="false"><path fill="currentColor" fill-opacity=".45" d="M230.68 547.93H230.69L320.91 288.36H53C23.73 288.36 0 312.08 0 341.36C0 348.18 1.29001 354.7 3.64001 360.69L3.68 360.79L73.71 548.79H73.73C84.94 580.49 114.85 603.34 150.21 604.1C150.82 604.12 151.43 604.13 152.05 604.13C188.52 604.13 219.51 580.62 230.68 547.93Z"/><path fill="currentColor" fill-opacity="1" d="M956.99 0H474.02C441.38 0 413.65 21.03 403.66 50.29L403.59 50.5L320.91 288.36H584.98C585.21 288.36 585.43 288.36 585.66 288.36C585.89 288.36 586.11 288.36 586.34 288.37H586.6C609.07 288.76 628.13 303.13 635.45 323.16H635.46L723.01 549.38C731.6 580.94 760.47 604.14 794.74 604.14C829.01 604.14 855.79 582.58 865.47 552.77L865.49 552.75L1026.64 100.41L1026.71 100.21C1029.71 92.16 1031.34 83.45 1031.34 74.35C1031.34 33.29 998.05 0.00999832 956.99 0.00999832V0Z"/><path fill="currentColor" fill-opacity=".7" d="M723.01 549.37L635.46 323.16H635.45C628.13 303.12 609.07 288.75 586.6 288.36H320.91L230.69 547.92H230.68C219.51 580.62 188.52 604.13 152.05 604.13H794.74C760.47 604.13 731.6 580.93 723.01 549.37Z"/></svg><h3>Provely</h3></div>
             <p class="role">Product build · live at <a href="https://prove.ly">prove.ly</a></p>
           </div>
           <p>Took the founder's idea to Provely, a live continuous compliance product, by directing AI coding tools. It keeps an organisation's policies current, sends each person only the changes that affect them, and makes their understanding provable on demand. It was designed to meet ISO 27001 and other standards. The method I now use on every build came out of this project.</p>
           <div class="stat"><b>4½</b><span>months to a live product</span></div>
+          <div class="shots">
+            <figure><img src="images/provely-campaign.webp" width="1200" height="388" loading="lazy" alt="A Provely campaign page: all evidence conditions met, with completion, median time to complete and the deadline."><figcaption>A campaign's evidence: completion, attestation and audit readiness.</figcaption></figure>
+            <figure><img src="images/provely-dashboard.webp" width="1200" height="442" loading="lazy" alt="The Provely workspace overview: audit readiness, campaign completion, people under assurance and policy gaps."><figcaption>The workspace overview, with demo data.</figcaption></figure>
+          </div>
         </article>
         <article class="job">
           <div>
