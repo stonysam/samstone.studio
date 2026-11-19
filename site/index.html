@@ -159,6 +159,11 @@ section { padding: 72px 0; border-top: 1px solid var(--line); }
 .shots img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--surface); }
 .shots figcaption { font-family: var(--display); font-size: 0.8125rem; color: var(--muted); }
 
+/* Lab */
+.phone { margin: 0; justify-self: end; display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
+.phone img { display: block; width: 180px; height: auto; border: 1px solid var(--line); border-radius: 22px; background: var(--surface); }
+.phone figcaption { font-family: var(--display); font-size: 0.8125rem; color: var(--muted); }
+
 /* Approach */
 .steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; counter-reset: step; }
 .steps li { counter-increment: step; border-top: 3px solid var(--ink); padding-top: 18px; display: flex; flex-direction: column; gap: 10px; }
@@ -212,6 +217,8 @@ footer a { color: var(--muted); }
   .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .job { grid-template-columns: minmax(0, 1fr); gap: 10px; }
   .stat { text-align: left; display: flex; align-items: baseline; gap: 10px; }
+  .phone { justify-self: start; align-items: flex-start; }
+  .phone img { width: 220px; }
   .stat span { margin-top: 0; }
   section { padding: 56px 0; }
   .contact { padding: 40px 28px; }
@@ -360,6 +367,39 @@ footer a { color: var(--muted); }
           </div>
           <p>Built a CRM that fills itself in from email, so contacts and conversations are recorded without anyone keying them in.</p>
           <div class="stat"><b>Auto</b><span>populated from email</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="lab">
+      <div class="sec-head">
+        <h2>From the lab</h2>
+        <p>Working prototypes and demos, each built end to end by directing AI coding tools. Not launched products, but real software that does what it says.</p>
+      </div>
+      <div class="work">
+        <article class="job">
+          <div>
+            <h3>Digital OCIO platform</h3>
+            <p class="role">For an investment firm · 2026</p>
+          </div>
+          <p>Portfolio construction and rebalancing across tokenised private credit and DeFi yield, using live market data. An optimiser proposes allocations against target yield, volatility and days to liquidate; risk tools track leverage and data quality; an AI assistant works from the live portfolio. Allocations run from an on-chain vault through a multisig into lending vaults on Arbitrum and Base, and investors see NAV, yield and documents in their own portal.</p>
+          <div class="stat"><b>Ready</b><span>to go live with real money</span></div>
+        </article>
+        <article class="job">
+          <div>
+            <h3>Agora</h3>
+            <p class="role">Hackathon entry · 2026</p>
+          </div>
+          <p>A prediction market where AI agents coordinate on-chain. Each agent carries a verified on-chain credential, a passport with an expiry, then proposes markets, endorses other agents' markets and bets on outcomes that settle on-chain, with every transaction shown live. Built solo and demoed on an EVM testnet.</p>
+          <div class="stat"><b>Solo</b><span>built in a hackathon</span></div>
+        </article>
+        <article class="job">
+          <div>
+            <h3>Tokenised property investing</h3>
+            <p class="role">Mobile app demo for a real-estate client · 2026</p>
+          </div>
+          <p>A phone app for investing in tokenised property: passkey sign-in, an accredited-investor check, a marketplace of properties, buying and selling property tokens, claiming yield, and borrowing against your holdings through a credit line.</p>
+          <figure class="phone"><img src="images/property-app.webp" width="420" height="663" loading="lazy" alt="A property listing in the app: a beachfront villa with 12% yield, a $100 minimum investment, funding progress and projected income."><figcaption>A sample listing</figcaption></figure>
         </article>
       </div>
     </section>
