@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sam Stone Studio</title>
+<meta name="description" content="Sam Stone turns founders' ideas into working products, fast, with total ownership and quality. Built with AI, backed by eight years leading product at Swarm.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://samstone.studio/">
+<meta property="og:title" content="Sam Stone Studio">
+<meta property="og:description" content="You have the vision. I'll build the product. Founder ideas to working products, built with AI.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/newsreader-latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+/* Layout idea: a left-aligned editorial page. Heavy grotesque headings carry the studio voice,
+   a serif body carries the first-person voice, and one "decision ledger" panel is the single bold element.
+   Fonts are served from this site, not from Google, so no visitor data goes to a third party. */
+@font-face { font-family: "Manrope"; font-style: normal; font-weight: 200 800; font-display: swap; src: url(fonts/manrope-latin-ext.woff2) format("woff2"); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+@font-face { font-family: "Manrope"; font-style: normal; font-weight: 200 800; font-display: swap; src: url(fonts/manrope-latin.woff2) format("woff2"); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+@font-face { font-family: "Newsreader"; font-style: normal; font-weight: 200 800; font-display: swap; src: url(fonts/newsreader-latin-ext.woff2) format("woff2"); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+@font-face { font-family: "Newsreader"; font-style: normal; font-weight: 200 800; font-display: swap; src: url(fonts/newsreader-latin.woff2) format("woff2"); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+:root {
+  --ground: #F4F8FC;
+  --surface: #FFFFFF;
+  --ink: #0E2744;
+  --muted: #4A5B70;
+  --accent: #1F5FA8;
+  --accent-soft: #DCE8F5;
+  --line: #C9D7E6;
+  --display: "Manrope", "Segoe UI", Helvetica, Arial, sans-serif;
+  --body: "Newsreader", Georgia, "Times New Roman", serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --ground: #0A1B30;
+    --surface: #10294A;
+    --ink: #EAF2FA;
+    --muted: #A3B6CB;
+    --accent: #8DBDEC;
+    --accent-soft: #173A63;
+    --line: #24446B;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --ground: #0A1B30;
+  --surface: #10294A;
+  --ink: #EAF2FA;
+  --muted: #A3B6CB;
+  --accent: #8DBDEC;
+  --accent-soft: #173A63;
+  --line: #24446B;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 1.1875rem;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent); text-underline-offset: 0.18em; }
+a:hover { text-decoration-thickness: 2px; }
+a:focus-visible, .btn:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; }
+p { margin: 0; }
+
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+
+/* Header */
+.top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 32px; padding: 28px 0; }
+.mark { font-family: var(--display); font-weight: 800; font-size: 1.375rem; letter-spacing: -0.03em; color: var(--ink); text-decoration: none; white-space: nowrap; }
+.mark span { font-weight: 400; color: var(--accent); }
+.nav { display: flex; flex-wrap: wrap; gap: 8px 28px; font-family: var(--display); font-size: 0.9375rem; font-weight: 500; }
+.nav a { color: var(--ink); text-decoration: none; padding: 6px 0; }
+.nav a:hover { color: var(--accent); }
+
+/* Hero */
+.hero { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 56px; align-items: center; padding: 56px 0 88px; }
+.hero h1 { font-weight: 800; font-size: clamp(2.5rem, 6.2vw, 4.5rem); line-height: 1.02; letter-spacing: -0.04em; }
+.hero h1 em { font-style: normal; color: var(--accent); }
+.lede { margin-top: 28px; font-size: 1.375rem; line-height: 1.45; max-width: 34em; }
+.actions { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px; margin-top: 36px; font-family: var(--display); }
+.btn { display: inline-block; background: var(--accent); color: var(--ground); font-weight: 700; font-size: 1rem; padding: 14px 22px; border-radius: 8px; text-decoration: none; }
+.btn:hover { background: var(--ink); }
+.plain-link { font-weight: 500; font-size: 1rem; }
+
+/* Decision ledger: the one bold element */
+.ledger { background: var(--ink); color: var(--ground); border-radius: 14px; padding: 28px 28px 24px; font-family: var(--display); }
+.ledger-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; }
+.ledger h2 { font-size: 1.25rem; font-weight: 800; letter-spacing: -0.02em; }
+.tag { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.75; white-space: nowrap; }
+.ledger ol { list-style: none; margin: 20px 0 0; padding: 0; display: flex; flex-direction: column; }
+.ledger li { display: grid; grid-template-columns: 2.25rem minmax(0, 1fr); gap: 4px 10px; padding: 14px 0; border-top: 1px solid color-mix(in srgb, var(--ground) 22%, transparent); }
+.ledger .n { font-size: 0.8125rem; font-weight: 700; opacity: 0.6; font-variant-numeric: tabular-nums; padding-top: 3px; }
+.ledger .q { font-size: 1.0625rem; font-weight: 500; line-height: 1.3; }
+.ledger .s { grid-column: 2; font-size: 0.8125rem; font-weight: 700; letter-spacing: 0.04em; color: var(--accent-soft); }
+.ledger-foot { margin-top: 6px; padding-top: 16px; border-top: 1px solid color-mix(in srgb, var(--ground) 22%, transparent); font-size: 1rem; font-weight: 700; }
+
+/* Sections */
+section { padding: 72px 0; border-top: 1px solid var(--line); }
+.sec-head { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 16px 56px; align-items: end; margin-bottom: 44px; }
+.sec-head h2 { font-weight: 800; font-size: clamp(1.75rem, 3.6vw, 2.5rem); line-height: 1.08; letter-spacing: -0.03em; }
+.sec-head p { color: var(--muted); max-width: 36em; }
+
+/* Offers */
+.offers { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.offer { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 28px; display: flex; flex-direction: column; gap: 12px; }
+.offer h3 { font-size: 1.3125rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1.2; }
+.offer .kind { font-family: var(--display); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
+.offer p { font-size: 1.0625rem; }
+.offer.lead { border: 2px solid var(--accent); }
+.also { margin-top: 28px; font-size: 1.0625rem; color: var(--muted); max-width: 46em; }
+
+/* Work list */
+.work { display: flex; flex-direction: column; }
+.job { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 7fr) minmax(0, 2fr); gap: 12px 40px; padding: 28px 0; border-top: 1px solid var(--line); align-items: start; }
+.job:last-child { border-bottom: 1px solid var(--line); }
+.job h3 { font-size: 1.25rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1.2; }
+.job .role { font-family: var(--display); font-size: 0.875rem; font-weight: 500; color: var(--muted); margin-top: 6px; }
+.job p { max-width: 36em; }
+.stat { font-family: var(--display); text-align: right; }
+.stat b { display: block; font-size: 2rem; font-weight: 800; letter-spacing: -0.04em; line-height: 1; color: var(--accent); font-variant-numeric: tabular-nums; }
+.stat span { display: block; margin-top: 6px; font-size: 0.8125rem; font-weight: 500; color: var(--muted); }
+
+/* Featured case study */
+.feature { padding: 32px 0 36px; border-top: 1px solid var(--line); }
+.feature-head { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 9fr); gap: 12px 40px; align-items: start; }
+.feature h3 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1.2; }
+.feature .role { font-family: var(--display); font-size: 0.875rem; font-weight: 500; color: var(--muted); margin-top: 6px; }
+.feature-head > p { font-size: 1.3125rem; line-height: 1.45; max-width: 34em; }
+.parts { list-style: none; margin: 28px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.parts li { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 22px 24px; display: flex; flex-direction: column; gap: 6px; }
+.parts h4 { font-family: var(--display); font-size: 1.0625rem; font-weight: 800; letter-spacing: -0.01em; line-height: 1.25; margin: 0; }
+.parts p { font-size: 1.0625rem; color: var(--muted); }
+.feature .sub { font-family: var(--display); font-size: 1rem; font-weight: 700; color: var(--accent); margin-top: 4px; }
+.glance { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px 24px; margin-top: 24px; padding: 22px 24px; background: var(--accent-soft); border-radius: 12px; font-family: var(--display); }
+.glance b { display: block; font-size: 2rem; font-weight: 800; letter-spacing: -0.04em; line-height: 1; color: var(--accent); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.glance span { display: block; margin-top: 6px; font-size: 0.8125rem; font-weight: 500; color: var(--muted); }
+.footnote { margin-top: 10px; font-family: var(--display); font-size: 0.8125rem; color: var(--muted); }
+.case { margin-top: 16px; }
+.case summary { font-family: var(--display); font-weight: 700; font-size: 1rem; color: var(--accent); cursor: pointer; min-height: 44px; display: flex; align-items: center; gap: 8px; }
+.case summary:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+.case-body { display: flex; flex-direction: column; gap: 14px; max-width: 40em; padding: 4px 0 8px; }
+.case-body h4 { font-family: var(--display); font-weight: 800; font-size: 1.0625rem; letter-spacing: -0.01em; margin: 12px 0 0; }
+
+/* Approach */
+.steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; counter-reset: step; }
+.steps li { counter-increment: step; border-top: 3px solid var(--ink); padding-top: 18px; display: flex; flex-direction: column; gap: 10px; }
+.steps li::before { content: "0" counter(step); font-family: var(--display); font-size: 0.875rem; font-weight: 800; color: var(--accent); font-variant-numeric: tabular-nums; }
+.steps h3 { font-size: 1.1875rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1.2; }
+.steps p { font-size: 1.0625rem; }
+.honest { margin-top: 44px; background: var(--accent-soft); border-radius: 12px; padding: 28px 32px; font-size: 1.3125rem; line-height: 1.45; max-width: 46em; }
+.honest strong { font-family: var(--display); font-weight: 800; letter-spacing: -0.01em; }
+
+/* Sharing AI skills */
+.share { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 16px 56px; align-items: start; }
+.share h2 { font-weight: 800; font-size: clamp(1.75rem, 3.6vw, 2.5rem); line-height: 1.08; letter-spacing: -0.03em; }
+.share .text { display: flex; flex-direction: column; gap: 18px; max-width: 36em; }
+.share .ig { font-family: var(--display); font-weight: 700; font-size: 1rem; }
+
+/* Workshop */
+.bench { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 40px; }
+.bench div { padding: 20px 0; border-top: 1px solid var(--line); }
+.bench h3 { font-size: 1.0625rem; font-weight: 800; letter-spacing: -0.01em; }
+.bench p { font-size: 1.0625rem; color: var(--muted); margin-top: 4px; }
+
+/* About */
+.about { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 24px 56px; }
+.about h2 { font-weight: 800; font-size: clamp(1.75rem, 3.6vw, 2.5rem); line-height: 1.08; letter-spacing: -0.03em; }
+.about .text { display: flex; flex-direction: column; gap: 20px; max-width: 36em; }
+.facts { list-style: none; margin: 28px 0 0; padding: 0; font-family: var(--display); font-size: 0.9375rem; display: flex; flex-direction: column; }
+.facts li { display: flex; justify-content: space-between; gap: 16px; padding: 10px 0; border-top: 1px solid var(--line); }
+.facts li span:first-child { color: var(--muted); }
+.facts li span:last-child { font-weight: 700; text-align: right; }
+
+/* Contact */
+.contact { background: var(--ink); color: var(--ground); border-radius: 16px; padding: 56px 48px; display: flex; flex-direction: column; gap: 20px; align-items: flex-start; }
+.contact h2 { font-weight: 800; font-size: clamp(2rem, 4.6vw, 3.25rem); line-height: 1.04; letter-spacing: -0.035em; max-width: 16em; }
+.contact p { max-width: 32em; color: var(--accent-soft); }
+.contact .mail { font-family: var(--display); font-weight: 800; font-size: clamp(1.25rem, 3.4vw, 2rem); letter-spacing: -0.02em; color: var(--ground); overflow-wrap: anywhere; }
+.contact .social { font-family: var(--display); font-size: 1rem; font-weight: 500; }
+.contact .social a { color: var(--ground); }
+section.last { border-top: 0; padding-top: 0; }
+
+footer { padding: 32px 0 56px; font-family: var(--display); font-size: 0.875rem; color: var(--muted); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 32px; }
+footer p { max-width: 40em; }
+footer a { color: var(--muted); }
+
+@media (max-width: 900px) {
+  .hero, .sec-head, .about, .share { grid-template-columns: minmax(0, 1fr); }
+  .hero { gap: 40px; padding: 32px 0 64px; }
+  .offers, .bench { grid-template-columns: minmax(0, 1fr); }
+  .feature-head { grid-template-columns: minmax(0, 1fr); }
+  .parts, .glance { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .job { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+  .stat { text-align: left; display: flex; align-items: baseline; gap: 10px; }
+  .stat span { margin-top: 0; }
+  section { padding: 56px 0; }
+  .contact { padding: 40px 28px; }
+}
+@media (max-width: 520px) {
+  body { font-size: 1.125rem; }
+  .steps, .parts { grid-template-columns: minmax(0, 1fr); }
+  .lede { font-size: 1.25rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <a class="mark" href="#top" aria-label="Sam Stone Studio, back to top">Sam Stone <span>Studio</span></a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#services">Services</a>
+      <a href="#work">Work</a>
+      <a href="#approach">Approach</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <div class="hero">
+      <div>
+        <h1>You have the vision. <em>I'll build the product.</em></h1>
+        <p class="lede">I'm Sam Stone. I turn founders' ideas into real, working products, fast, and I own the build from the first decision to the finished product. I direct AI coding tools to do it, backed by eight years leading product at Swarm.</p>
+        <div class="actions">
+          <a class="btn" href="mailto:hello@samstone.studio">Email hello@samstone.studio</a>
+          <a class="plain-link" href="#work">See the work</a>
+        </div>
+      </div>
+
+      <aside class="ledger" aria-label="Example of the decisions made before a build starts">
+        <div class="ledger-head">
+          <h2>Decisions before code</h2>
+          <span class="tag">Example</span>
+        </div>
+        <ol>
+          <li><span class="n">D1</span><span class="q">Who uses it, and what do they do first?</span><span class="s">Decided</span></li>
+          <li><span class="n">D2</span><span class="q">What is out of scope?</span><span class="s">Decided</span></li>
+          <li><span class="n">D3</span><span class="q">Which outside systems must it talk to?</span><span class="s">Proven with a test call</span></li>
+          <li><span class="n">D4</span><span class="q">What does done look like?</span><span class="s">Written down</span></li>
+        </ol>
+        <p class="ledger-foot">Then the code gets written.</p>
+      </aside>
+    </div>
+
+    <section id="services">
+      <div class="sec-head">
+        <h2>Three ways to work with me</h2>
+        <p>Most projects start with a founder's idea and a first version. Some start with a repetitive job that AI can take off a team.</p>
+      </div>
+      <div class="offers">
+        <article class="offer lead">
+          <span class="kind">Product build</span>
+          <h3>From your idea to a working product</h3>
+          <p>You bring the vision and I own the build. We agree the scope and the price before I start, then I take it from the first decision to software people can use, in weeks. Pricing on request.</p>
+        </article>
+        <article class="offer">
+          <span class="kind">Platform build</span>
+          <h3>Larger systems, with the right people</h3>
+          <p>For bigger builds I lead product and architecture and bring in developers I've worked with before.</p>
+        </article>
+        <article class="offer">
+          <span class="kind">Automation</span>
+          <h3>Take a repetitive job off your team</h3>
+          <p>AI-assisted workflows for the work nobody wants: reconciling data between systems, pulling details out of documents, sending the routine emails on time.</p>
+        </article>
+      </div>
+      <p class="also">I also take on part-time product and technical leadership. And if your project involves tokenisation, real-world assets or DeFi, I spent eight years on exactly that at Swarm.</p>
+    </section>
+
+    <section id="work">
+      <div class="sec-head">
+        <h2>Selected work</h2>
+        <p>Products I've led and built, from regulated trading infrastructure to compliance software.</p>
+      </div>
+      <div class="work">
+        <article class="feature">
+          <div class="feature-head">
+            <div>
+              <h3>Swarm</h3>
+              <p class="sub">Building regulated digital-asset infrastructure</p>
+              <p class="role">Head of Product · December 2017 to May 2026</p>
+            </div>
+            <p>I led product and platform development at Swarm, building a regulated digital-asset ecosystem connecting traditional financial assets with blockchain-based ownership, trading and financial services.</p>
+          </div>
+          <ul class="parts">
+            <li><h4>Regulated trading infrastructure</h4><p>Built the infrastructure for trading digital securities within a regulated, compliance-aware market environment.</p></li>
+            <li><h4>Asset tokenisation</h4><p>Developed the technology for representing stocks, gold and bonds on-chain, spanning issuance, tokenisation, ownership, trading and redemption.</p></li>
+            <li><h4>Cross-chain infrastructure</h4><p>Extended digital asset interoperability through blockchain integrations and Chainlink CCIP, enabling assets to move across supported networks.</p></li>
+            <li><h4>Asset intelligence: ChainWiki</h4><p>Developed a structured data layer for digital assets, connecting asset information, transparency and data-driven applications.</p></li>
+            <li><h4>Yield and distribution</h4><p>Built programmable financial flows for yield streaming, allocation and distribution to eligible token holders.</p></li>
+            <li><h4>Identity and compliance</h4><p>Integrated investor onboarding, KYC/KYB, wallet authorisation, permission management and on-chain transfer restrictions into the platform architecture.</p></li>
+          </ul>
+          <div class="glance" aria-label="Platform at a glance">
+            <div><b>8+</b><span>years leading product</span></div>
+            <div><b>12</b><span>people at the team's largest</span></div>
+            <div><b>7,000+</b><span>verified users*</span></div>
+            <div><b>50+</b><span>trading pairs*</span></div>
+          </div>
+          <p class="footnote">* Historically reported platform figures, not current operating metrics.</p>
+          <details class="case">
+            <summary>Read the full case study</summary>
+            <div class="case-body">
+              <h4>The challenge</h4>
+              <p>Bringing real-world financial assets onto blockchain requires far more than token issuance. It means building infrastructure that connects financial products, legal ownership, investor eligibility, compliance, trading, settlement and asset servicing, while making the underlying technology accessible and usable.</p>
+              <p>Over more than eight years, I led the evolution of Swarm's platform across these interconnected layers, translating financial and regulatory requirements into product architecture and working software.</p>
+              <h4>My role</h4>
+              <p>As Head of Product, I led product strategy, platform architecture and delivery across the ecosystem. Working at the intersection of financial products, regulatory requirements and engineering, I translated complex business and compliance needs into technical direction, product priorities and implementation.</p>
+              <p>My role spanned defining what the platform needed to do, how its components fit together, and leading the engineering effort responsible for delivering it.</p>
+              <h4>The result</h4>
+              <p>An integrated digital-asset platform spanning regulated trading, tokenised real-world assets, cross-chain infrastructure, data, programmable financial flows and compliance, bringing together the product and engineering foundations required to operate digital securities on blockchain infrastructure.</p>
+              <p>Eight years of platform development, connecting traditional finance with programmable ownership.</p>
+            </div>
+          </details>
+        </article>
+        <article class="job">
+          <div>
+            <h3>Provely</h3>
+            <p class="role">Product build · live at <a href="https://prove.ly">prove.ly</a></p>
+          </div>
+          <p>Took the founder's idea to Provely, a live continuous compliance product, by directing AI coding tools. It keeps an organisation's policies current, sends each person only the changes that affect them, and makes their understanding provable on demand. It was designed to meet ISO 27001 and other standards. The method I now use on every build came out of this project.</p>
+          <div class="stat"><b>4½</b><span>months to a live product</span></div>
+        </article>
+        <article class="job">
+          <div>
+            <h3>Policy-aware AI workspace for teams</h3>
+            <p class="role">Co-founder and technical lead · since September 2026</p>
+          </div>
+          <p>I co-founded this platform with two partners and lead the build end to end. It lets teams use many AI models in one place, routing each request to a model that fits the team's price and data rules, and flagging personal data before a prompt leaves. I set the architecture, designed the routing and billing ledger, and directed AI coding agents through more than 300 reviewed changes in about seven weeks. It's heading into a closed private beta.</p>
+          <div class="stat"><b>300+</b><span>reviewed changes in about seven weeks</span></div>
+        </article>
+        <article class="job">
+          <div>
+            <h3>Matchmore</h3>
+            <p class="role">CRM build</p>
+          </div>
+          <p>Built a CRM that fills itself in from email, so contacts and conversations are recorded without anyone keying them in.</p>
+          <div class="stat"><b>Auto</b><span>populated from email</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="approach">
+      <div class="sec-head">
+        <h2>How a build runs</h2>
+        <p>AI makes writing code fast. The expensive mistakes are still the decisions, so those come first.</p>
+      </div>
+      <ol class="steps">
+        <li>
+          <h3>Decide first</h3>
+          <p>We settle what is costly to change later before any code exists: who it is for, what is left out, and what done means.</p>
+        </li>
+        <li>
+          <h3>Prove the risky parts</h3>
+          <p>Every outside system gets a small working test call before I build screens on top of it.</p>
+        </li>
+        <li>
+          <h3>Build to the agreed scope</h3>
+          <p>I direct AI coding tools to write the software and I check what they produce. You see it working early.</p>
+        </li>
+        <li>
+          <h3>Ship and hand over</h3>
+          <p>You get working software and the record of decisions behind it.</p>
+        </li>
+      </ol>
+      <p class="honest"><strong>How I actually work.</strong> I direct AI coding tools; I don't hand-write every line. What you pay for is product judgement, architecture, and knowing what to check.</p>
+    </section>
+
+    <section id="ai">
+      <div class="share">
+        <h2>Learning to build with AI?</h2>
+        <div class="text">
+          <p>People often ask how I work with AI tools, and I'm happy to share what I've learned. I post what works, and what doesn't, on Instagram. If you're stuck on something, get in touch.</p>
+          <a class="ig" href="https://www.instagram.com/samstone.studio/">Follow @samstone.studio on Instagram</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="workshop">
+      <div class="sec-head">
+        <h2>From the workshop</h2>
+        <p>Things I build for myself and my family. They are at different stages, and they are where I try new tools first.</p>
+      </div>
+      <div class="bench">
+        <div><h3>Vault Heist</h3><p>An original multiplayer game for Roblox. The browser prototype is done and the Roblox build is under way.</p></div>
+        <div><h3>SkyScout</h3><p>A kid-friendly drone game built in Unity.</p></div>
+        <div><h3>Stonebook</h3><p>A family tracker for machines, animals, documents, chores and bills.</p></div>
+        <div><h3>Homestead</h3><p>A multi-user task and roadmap app that AI assistants can read and update.</p></div>
+        <div><h3>Trellis</h3><p>A family crypto wallet built on a Safe multisig.</p></div>
+        <div><h3>Ad Grants agent</h3><p>A browser extension that helps nonprofits run their Google Ad Grants campaigns with AI.</p></div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="about">
+        <div>
+          <h2>The same job, in different places</h2>
+          <ul class="facts">
+            <li><span>Based in</span><span>South Bohemia, Czech Republic</span></li>
+            <li><span>From</span><span>Australia</span></li>
+            <li><span>Working language</span><span>English</span></li>
+            <li><span>On Ethereum</span><span>samstone.eth</span></li>
+          </ul>
+        </div>
+        <div class="text">
+          <p>My work has always come down to one thing: turning what leadership wants into something a team can build.</p>
+          <p>I've coordinated provincial logistics for UNOPS during an Afghan parliamentary election and run digital at an Australian advertising agency. I spent eight years as Head of Product at Swarm. I also hold a postgraduate qualification in public health.</p>
+          <p>I live on a farm near Český Krumlov. We have renovated an old cabin and are now fixing up an old farmhouse, so I repair pumps and engines as well as software. A recent highlight was tracing 15 years of well-pump failures to a single check valve.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="last">
+      <div class="contact">
+        <h2>Tell me what you're trying to get done.</h2>
+        <p>A few lines is enough to start. I'll tell you whether I can help and what a first step would look like.</p>
+        <a class="mail" href="mailto:hello@samstone.studio">hello@samstone.studio</a>
+        <p class="social">Or follow along on Instagram: <a href="https://www.instagram.com/samstone.studio/">@samstone.studio</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Sam Stone. Sam Stone Studio is the trading name of Sam Stone, self-employed in the Czech Republic. Registered office: Kájov – Novosedly 55, 381 01, Czech Republic. IČO: 87884712. Entered in the Trade Register kept by the Municipal Office of Český Krumlov.</p>
+    <p>samstone.studio · <a href="https://www.instagram.com/samstone.studio/">Instagram</a></p>
+  </footer>
+
+</div>
+</body>
+</html>
